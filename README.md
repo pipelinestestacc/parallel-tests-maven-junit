@@ -25,11 +25,6 @@ mvn test -Psuccessful-tests
 mvn test -Pfailing-tests
 ```
 
-### Run dependent tests
-```bash
-mvn test -Pdependent-tests
-```
-
 ### Run mixed tests (successful + failing + dependent)
 ```bash
 mvn test -Pmixed-tests
