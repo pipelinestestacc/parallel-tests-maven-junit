@@ -104,7 +104,6 @@
                             <includes>
                                 <include>**/CelsiusToFahrenheitTest.class</include>
                                 <include>**/CelsiusToFahrenheitTest_200tests.class</include>
-                                <include>**/CtoF_200tests_differentName.class</include>
                             </includes>
                         </configuration>
                     </plugin>
@@ -123,27 +122,10 @@
                         <version>3.2.5</version>
                         <configuration>
                             <includes>
+                                <include>**/CelsiusToFahrenheitTest.class</include>
                                 <include>**/FahrenheitToCelsiusConversionTest.class</include>
                                 <include>**/FahrenheitToCelsiusConversionTest_200tests.class</include>
-                            </includes>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- Profile for running dependent tests -->
-        <profile>
-            <id>dependent-tests</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.2.5</version>
-                        <configuration>
-                            <includes>
-                                <include>**/DependentTests.class</include>
+                                <include>**/DependantTests.class</include>
                             </includes>
                         </configuration>
                     </plugin>
@@ -163,8 +145,47 @@
                         <configuration>
                             <includes>
                                 <include>**/CelsiusToFahrenheitTest.class</include>
-                                <include>**/FahrenheitToCelsiusConversionTest.class</include>
-                                <include>**/DependentTests.class</include>
+                                <include>**/CelsiusToFahrenheitTest_200tests.class</include>
+                                <include>**/FahrenheitToCelsiusConversionTest_200tests.class</include>
+                                <include>**/DependantTests.class</include>
+                            </includes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Profile for running dependent tests -->
+        <profile>
+            <id>another-suceeding-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+                        <configuration>
+                            <includes>
+                                <include>**/CtoF_200tests_differentName.class</include>
+                            </includes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Profile for running all tests -->
+        <profile>
+            <id>all-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+                        <configuration>
+                            <includes>
+                                <include>big/**/*.class</include>
                             </includes>
                         </configuration>
                     </plugin>
