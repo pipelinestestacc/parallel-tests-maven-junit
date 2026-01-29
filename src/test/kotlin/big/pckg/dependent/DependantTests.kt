@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Assumptions.assumeTrue
  * In JUnit 5, we use @Order annotation and track state to simulate test dependencies.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
-class DependentTests {
+class DependantTests {
 
     companion object {
         private var test1Passed = false
